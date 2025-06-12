@@ -40,7 +40,7 @@ async function getSongs(songFile) {
     for (const song of songs) {
         songUl.innerHTML = songUl.innerHTML + `<li><img src="img/music.svg" class="invert" alt="">
                             <div class="info">
-                                <div data-song= ${song}>${song.replaceAll("%20", " ",).replace(".mp3", "")}</div>
+                                <div data-song= "${song}">${song.replaceAll("%20", " ",).replace(".mp3", "")}</div>
                                 <div>priyank</div>
                             </div>
                             <div class="playNow">
@@ -108,6 +108,10 @@ async function album() {
     })
 
 }
+const playBtn = document.getElementById("play");
+const previousBtn = document.getElementById("previous");
+const nextBtn = document.getElementById("next");
+
 async function main() {
 
     // It lists the song list
@@ -118,7 +122,7 @@ async function main() {
     album()
 
     // attach an event listener to play, next and previous
-    play.addEventListener("click", () => {
+    playBtn.addEventListener("click", () => {
         if (currentSong.paused) {
             currentSong.play()
             play.src = "img/pause.svg"
@@ -158,7 +162,7 @@ async function main() {
 
     // add an event listener to previous and next
 
-    previous.addEventListener("click", () => {
+    previousBtn.addEventListener("click", () => {
         currentSong.pause()
         let index = songs.indexOf(currentSong.src.split("/").slice(-1)[0])
         if ((index - 1) >= 0) {
@@ -166,7 +170,7 @@ async function main() {
             playMusic(songs[index - 1])
         }
     })
-    next.addEventListener("click", () => {
+    nextBtn.addEventListener("click", () => {
 
         currentSong.pause()
         let index = songs.indexOf(currentSong.src.split("/").slice(-1)[0])
