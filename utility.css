@@ -1,0 +1,71 @@
+.border {
+    border: 2px solid rgb(160, 11, 11);
+    margin: 3px;
+    /* height: 50vh; */
+}
+
+.flex {
+    display: flex;
+
+}
+
+.justify-center {
+    justify-content: center;
+}
+
+.item-center {
+    align-items: center;
+}
+
+.bg-black {
+    background-color: black;
+    color: white;
+}
+
+.invert {
+    filter: invert(1);
+}
+
+.bg-lightblack {
+    background-color: #161515;
+}
+
+.bg-lightblack2 {
+    background-color: #171717;
+}
+
+.bg-grey {
+    background-color: #1f1f1f;
+}
+
+.rounded {
+    border-radius: 7px;
+}
+
+.m-1 {
+    margin: 3px;
+}
+
+.p-1 {
+    padding: 10px;
+}
+
+/* .font-size-title{
+    font-family: "Spotify Mix", Helvetica, sans-serif;
+    font-weight: lar ;
+    font-size: 16px;
+} */
+
+::-webkit-scrollbar{
+    width: 10px;
+}
+
+::-webkit-scrollbar-thumb{
+    background-color:#595959;
+    border-radius: 6px;
+}
+
+.bar-above{
+    display: flex;
+    justify-content: space-between;
+}
