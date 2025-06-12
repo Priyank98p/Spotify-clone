@@ -424,6 +424,7 @@ input {
     .playbar {
         width: calc(100vw - 75px);
         height: calc(100vh- 120px);
+        left: 22px;
     }
 
     .seekbar {
@@ -445,6 +446,7 @@ input {
         display: flex;
         justify-content: center;
         margin: 0;
+        max-height: 56vh;
     }
 
 
@@ -493,7 +495,6 @@ input {
     /* 6) Shrink links so they don’t overflow */
     .right-section {
         flex-wrap: wrap;
-        /* gap: 8px; */
     }
 
     .right-section a {
@@ -510,4 +511,14 @@ input {
         width: auto;
     }
 
+}
+@media (max-width: 480px){
+    .card{
+        width: 100%;
+    }
+    .card-container{
+        overflow-y: unset;
+        max-height: unset;
+        margin-bottom: 25vh;
+    }
 }

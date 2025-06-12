@@ -38,14 +38,14 @@ async function getSongs(songFile) {
     let songUl = document.querySelector(".song-list").getElementsByTagName("ul")[0]
     songUl.innerHTML = ""
     for (const song of songs) {
-        songUl.innerHTML = songUl.innerHTML + `<li><img src="music.svg" class="invert" alt="">
+        songUl.innerHTML = songUl.innerHTML + `<li><img src="img/music.svg" class="invert" alt="">
                             <div class="info">
                                 <div data-song= ${song}>${song.replaceAll("%20", " ",).replace(".mp3", "")}</div>
                                 <div>priyank</div>
                             </div>
                             <div class="playNow">
                                 <span>Play Now</span>
-                                <img src="play.svg" alt="play">
+                                <img src="img/play.svg" alt="play">
                             </div></li>`;
     }
 
@@ -64,7 +64,7 @@ const playMusic = (track, pause = false) => {
     currentSong.src = `/${currentFolder}/` + track
     if (!pause) {
         currentSong.play()
-        play.src = "pause.svg"
+        play.src = "img/pause.svg"
     }
     document.querySelector(".songinfo").innerHTML = decodeURI(track)
     document.querySelector(".songtime").innerHTML = "00:00 / 00:00"
@@ -91,11 +91,11 @@ async function album() {
             let response = await a.json();
             cardContainer.innerHTML = cardContainer.innerHTML + `<div data-folder="${folderName}" class="card">
                         <div class="play">
-                            <img src="icon.svg" alt="icon">
+                            <img src="img/icon.svg" alt="icon">
                         </div>
                         <img src="songs/${folderName}/cover.jpg" alt="">
                         <a class="song-title" href="">${response.title}</a>
-                        <a class="artists" href="">${response.discription}</a>
+                        <a class="artists" href="">${response.description}</a>
                     </div>`
         }
     }
@@ -121,10 +121,10 @@ async function main() {
     play.addEventListener("click", () => {
         if (currentSong.paused) {
             currentSong.play()
-            play.src = "pause.svg"
+            play.src = "img/pause.svg"
         } else {
             currentSong.pause()
-            play.src = "play.svg"
+            play.src = "img/play.svg"
         }
     })
 
@@ -180,22 +180,30 @@ async function main() {
     // add an event listener to volume
 
     document.querySelector(".range").getElementsByTagName("input")[0].addEventListener("change", (e) => {
-        currentSong.volume = parseInt(e.target.value) / 100
+        currentSong.volume = parseFloat(e.target.value) / 100
+        if (currentSong.volume > 0) {
+            document.querySelector(".volume>img").src = document.querySelector(".volume>img").src.replace("mute.svg", "volume.svg");
+        }
+        else if (currentSong.volume === 0) {
+            document.querySelector(".volume>img").src = document.querySelector(".volume>img").src.replace("volume.svg", "mute.svg");
+        }
     })
 
     // add event listener on volume to mute
+    let lastVolume = 1;
+
     document.querySelector(".volume>img").addEventListener("click", e => {
-        console.log(e.target)
-        if (e.target.src.includes("volume.svg")) {
-            e.target.src = e.target.src.replace("volume.svg", "mute.svg");
-            currentSong.volume = 0;
-            document.querySelector(".range").getElementsByTagName("input")[0].value = 0;
+        if (currentSong.volume === 0) {
+            currentSong.volume = lastVolume;
+            document.querySelector(".range input").value = lastVolume * 100;
+            e.target.src = "img/volume.svg";
         } else {
-            e.target.src = e.target.src.replace("mute.svg", "volume.svg");
-            currentSong.volume = 1;
-            document.querySelector(".range").getElementsByTagName("input")[0].value = 100;
+            lastVolume = currentSong.volume;
+            currentSong.volume = 0;
+            document.querySelector(".range input").value = 0;
+            e.target.src = "img/mute.svg";
         }
-    })
+    });
 
     // Play next song automatically when current song ends
     currentSong.addEventListener("ended", () => {
@@ -206,7 +214,7 @@ async function main() {
         } else {
             // Optional: Restart playlist or pause
             console.log("Playlist finished");
-            play.src = "play.svg"; // Set play icon if you want to stop here
+            play.src = "img/play.svg"; // Set play icon if you want to stop here
         }
     });
 
