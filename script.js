@@ -42,13 +42,14 @@ async function getSongs(songFolder) {
     }
 
     // Add click event listeners to each song in the list
-    Array.from(document.querySelector(".song-list li")).forEach(e => {
-        e.addEventListener("click", () => {
-            playMusic(e.querySelector(".info div").dataset.song);
+    Array.from(document.querySelector(".song-list").getElementsByTagName("li")).forEach(e => {
+        e.addEventListener("click", element => {
+            playMusic(e.querySelector(".info").firstElementChild.dataset.song);
         });
     });
 
     return songs;
+    
 }
 
 // Play a specific song
@@ -138,19 +139,24 @@ async function main() {
         document.querySelector(".left").style.left = "-110%";
     });
 
-    // Previous song
     previousBtn.addEventListener("click", () => {
         currentSong.pause();
-        let index = songs.indexOf(currentSong.src.split("/").pop());
-        if (index - 1 >= 0) playMusic(songs[index - 1]);
+        let currentTrack = decodeURI(currentSong.src).split("/").pop();
+        let index = songs.indexOf(currentTrack);
+        if (index > 0) {
+            playMusic(songs[index - 1]);
+        }
     });
 
-    // Next song
     nextBtn.addEventListener("click", () => {
         currentSong.pause();
-        let index = songs.indexOf(currentSong.src.split("/").pop());
-        if (index + 1 < songs.length) playMusic(songs[index + 1]);
+        let currentTrack = decodeURI(currentSong.src).split("/").pop();
+        let index = songs.indexOf(currentTrack);
+        if (index + 1 < songs.length) {
+            playMusic(songs[index + 1]);
+        }
     });
+
 
     // Volume slider
     document.querySelector(".range input").addEventListener("change", (e) => {
