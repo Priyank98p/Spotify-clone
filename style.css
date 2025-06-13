@@ -236,7 +236,7 @@ body {
     align-items: center;
     justify-content: center;
     position: absolute;
-    top: 152px;
+    bottom: 88px;
     right: 28px;
     opacity: var(--a);
     transition: all 0.2s ease-out;
@@ -417,9 +417,7 @@ input {
         width: 100vw;
         margin: 0;
     }
-    .play{
-        display: none;
-    }
+    
 
     .playbar {
         width: calc(100vw - 75px);
