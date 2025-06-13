@@ -1,0 +1,57 @@
+{
+    "arpit": {
+        "title": "Arpit Bala Collection",
+        "description": "Songs by Arpit Bala",
+        "cover": "cover.jpg",
+        "songs": [
+            "Bade Bhaiya Humko FF Khelna Hai by Arpit Bala.mp3",
+            "GULABO Arpit Bala BHAPPA A.O.D.D.mp3",
+            "Kya Tu Theek Hai.mp3",
+            "Maharani feat.Arpit Bala.mp3",
+            "Zimmedaar Paradox ft. Arpit Bala.mp3"
+        ]
+    },
+    "copyRightSong": {
+        "title": "Copyright-Free Bangers",
+        "description": "Use these freely",
+        "cover": "cover.jpg",
+        "songs": [
+            "BAIXO.mp3",
+            "BLESSED MANE Death Is No More.mp3",
+            "FUNK UNIVERSO.mp3",
+            "LXNGVX YUM YUM Official Music.mp3",
+            "MONTAGEM TOMADA SLOWED.mp3",
+            "NITRO.mp3",
+            "Noir.mp3",
+            "VOID SUPER SLOWED.mp3",
+            "Warriyo Mortals feat.Laura Brehm.mp3"
+        ]
+    },
+    "dubstep": {
+        "title": "Dubstep Vault",
+        "description": "High-energy dubstep mixes",
+        "cover": "cover.jpg",
+        "songs": [
+            "Beethoven Elise Klutch Dubstep Trap Remix.mp3",
+            "Dragon Ball Super PUNYASO Dubstep Remix.mp3",
+            "Gravity Falls Theme Song OVA Dubstep Remix.mp3",
+            "PUNYASO Konoha s Kid Naruto Tribute.mp3",
+            "SKRILLEX Bangarang feat.Sirah Official Music Video.mp3",
+            "Spag Heddy Permanent.mp3",
+            "We Are Number One MadRats Dubstep Remix.mp3"
+        ]
+    },
+    "ritviz": {
+        "title": "Ritviz song",
+        "description": "Used for educational purposes",
+        "cover": "cover.jpg",
+        "songs": [
+            "Baaraat by Ritviz Anvita Bharti Nucleya.mp3",
+            "Chalo Chalein Ritviz ft.Seedhe maut.mp3",
+            "Ik Kudi.mp3",
+            "Liggi Humri seet by Ritviz.mp3",
+            "Roz by Ritviz & Nucleya.mp3",
+            "Udd Gaye by Ritviz.mp3"
+        ]
+    }
+}
